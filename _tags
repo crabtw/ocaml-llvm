@@ -1,0 +1,56 @@
+# OASIS_START
+# DO NOT EDIT (digest: 6ce4056eae1ca029362628eed50d5c19)
+# Ignore VCS directories, you can use the same kind of rule outside 
+# OASIS_START/STOP if you want to exclude directories that contains 
+# useless stuff for the build process
+<**/.svn>: -traverse
+<**/.svn>: not_hygienic
+".bzr": -traverse
+".bzr": not_hygienic
+".hg": -traverse
+".hg": not_hygienic
+".git": -traverse
+".git": not_hygienic
+"_darcs": -traverse
+"_darcs": not_hygienic
+# Library llvm
+"llvm/llvm.cmxs": use_llvm
+<llvm/*.ml{,i}>: oasis_library_llvm_ccopt
+"llvm/llvm_ocaml.c": oasis_library_llvm_ccopt
+<llvm/llvm.{cma,cmxa}>: use_libllvm_stubs
+# Library analysis
+"analysis/analysis.cmxs": use_analysis
+<analysis/*.ml{,i}>: oasis_library_analysis_ccopt
+"analysis/llvm_ocaml.c": oasis_library_analysis_ccopt
+<analysis/analysis.{cma,cmxa}>: use_libanalysis_stubs
+# Library bitreader
+"bitreader/bitreader.cmxs": use_bitreader
+<bitreader/*.ml{,i}>: oasis_library_bitreader_ccopt
+"bitreader/bitreader_ocaml.c": oasis_library_bitreader_ccopt
+<bitreader/bitreader.{cma,cmxa}>: use_libbitreader_stubs
+# Library bitwriter
+"bitwriter/bitwriter.cmxs": use_bitwriter
+<bitwriter/*.ml{,i}>: oasis_library_bitwriter_ccopt
+"bitwriter/bitwriter_ocaml.c": oasis_library_bitwriter_ccopt
+<bitwriter/bitwriter.{cma,cmxa}>: use_libbitwriter_stubs
+# Library executionengine
+"executionengine/executionengine.cmxs": use_executionengine
+<executionengine/*.ml{,i}>: oasis_library_executionengine_ccopt
+"executionengine/executionengine_ocaml.c": oasis_library_executionengine_ccopt
+<executionengine/executionengine.{cma,cmxa}>: use_libexecutionengine_stubs
+# Library target
+"target/target.cmxs": use_target
+<target/*.ml{,i}>: oasis_library_target_ccopt
+"target/target_ocaml.c": oasis_library_target_ccopt
+<target/target.{cma,cmxa}>: use_libtarget_stubs
+# Library ipo
+"transforms/ipo/ipo.cmxs": use_ipo
+<transforms/ipo/*.ml{,i}>: oasis_library_ipo_ccopt
+"transforms/ipo/ipo_ocaml.c": oasis_library_ipo_ccopt
+<transforms/ipo/ipo.{cma,cmxa}>: use_libipo_stubs
+# Library scalar_opts
+"transforms/scalar/scalar_opts.cmxs": use_scalar_opts
+<transforms/scalar/*.ml{,i}>: oasis_library_scalar_opts_ccopt
+"transforms/scalar/scalar_opts_ocaml.c": oasis_library_scalar_opts_ccopt
+<transforms/scalar/scalar_opts.{cma,cmxa}>: use_libscalar_opts_stubs
+# OASIS_STOP

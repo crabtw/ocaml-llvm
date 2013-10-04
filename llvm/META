@@ -1,0 +1,80 @@
+# OASIS_START
+# DO NOT EDIT (digest: cfde431fca6de6f5e8f78a04de46bc4a)
+version = "3.3"
+description = "LLVM OCaml bindings"
+archive(byte) = "llvm.cma"
+archive(byte, plugin) = "llvm.cma"
+archive(native) = "llvm.cmxa"
+archive(native, plugin) = "llvm.cmxs"
+exists_if = "llvm.cma"
+package "target" (
+ version = "3.3"
+ description = "LLVM OCaml bindings"
+ archive(byte) = "target.cma"
+ archive(byte, plugin) = "target.cma"
+ archive(native) = "target.cmxa"
+ archive(native, plugin) = "target.cmxs"
+ exists_if = "target.cma"
+)
+
+package "scalar_opts" (
+ version = "3.3"
+ description = "LLVM OCaml bindings"
+ archive(byte) = "scalar_opts.cma"
+ archive(byte, plugin) = "scalar_opts.cma"
+ archive(native) = "scalar_opts.cmxa"
+ archive(native, plugin) = "scalar_opts.cmxs"
+ exists_if = "scalar_opts.cma"
+)
+
+package "ipo" (
+ version = "3.3"
+ description = "LLVM OCaml bindings"
+ archive(byte) = "ipo.cma"
+ archive(byte, plugin) = "ipo.cma"
+ archive(native) = "ipo.cmxa"
+ archive(native, plugin) = "ipo.cmxs"
+ exists_if = "ipo.cma"
+)
+
+package "executionengine" (
+ version = "3.3"
+ description = "LLVM OCaml bindings"
+ archive(byte) = "executionengine.cma"
+ archive(byte, plugin) = "executionengine.cma"
+ archive(native) = "executionengine.cmxa"
+ archive(native, plugin) = "executionengine.cmxs"
+ exists_if = "executionengine.cma"
+)
+
+package "bitwriter" (
+ version = "3.3"
+ description = "LLVM OCaml bindings"
+ archive(byte) = "bitwriter.cma"
+ archive(byte, plugin) = "bitwriter.cma"
+ archive(native) = "bitwriter.cmxa"
+ archive(native, plugin) = "bitwriter.cmxs"
+ exists_if = "bitwriter.cma"
+)
+
+package "bitreader" (
+ version = "3.3"
+ description = "LLVM OCaml bindings"
+ archive(byte) = "bitreader.cma"
+ archive(byte, plugin) = "bitreader.cma"
+ archive(native) = "bitreader.cmxa"
+ archive(native, plugin) = "bitreader.cmxs"
+ exists_if = "bitreader.cma"
+)
+
+package "analysis" (
+ version = "3.3"
+ description = "LLVM OCaml bindings"
+ archive(byte) = "analysis.cma"
+ archive(byte, plugin) = "analysis.cma"
+ archive(native) = "analysis.cmxa"
+ archive(native, plugin) = "analysis.cmxs"
+ exists_if = "analysis.cma"
+)
+# OASIS_STOP
+

@@ -1,0 +1,71 @@
+OASISFormat: 0.3
+Name: llvm
+Version: 3.3
+Synopsis: LLVM OCaml bindings
+Authors: LLVM contributors
+License: http://opensource.org/licenses/UoI-NCSA.php
+BuildTools: ocamlbuild
+Plugins: META (0.3), DevFiles (0.3)
+
+Library llvm
+    Path: llvm
+    Modules: Llvm
+    CSources: llvm_ocaml.c
+    CCopt: $cflags
+    CompiledObject: best
+
+Library analysis
+    FindlibParent: llvm
+    Path: analysis
+    Modules: Llvm_analysis
+    CSources: llvm_ocaml.c
+    CCopt: $cflags
+    CompiledObject: best
+
+Library bitreader
+    FindlibParent: llvm
+    Path: bitreader
+    Modules: Llvm_bitreader
+    CSources: bitreader_ocaml.c
+    CCopt: $cflags
+    CompiledObject: best
+
+Library bitwriter
+    FindlibParent: llvm
+    Path: bitwriter
+    Modules: Llvm_bitwriter
+    CSources: bitwriter_ocaml.c
+    CCopt: $cflags
+    CompiledObject: best
+
+Library executionengine
+    FindlibParent: llvm
+    Path: executionengine
+    Modules: Llvm_executionengine
+    CSources: executionengine_ocaml.c
+    CCopt: $cflags
+    CompiledObject: best
+
+Library target
+    FindlibParent: llvm
+    Path: target
+    Modules: Llvm_target
+    CSources: target_ocaml.c
+    CCopt: $cflags
+    CompiledObject: best
+
+Library ipo
+    FindlibParent: llvm
+    Path: transforms/ipo
+    Modules: Llvm_ipo
+    CSources: ipo_ocaml.c
+    CCopt: $cflags
+    CompiledObject: best
+
+Library scalar_opts
+    FindlibParent: llvm
+    Path: transforms/scalar
+    Modules: Llvm_scalar_opts
+    CSources: scalar_opts_ocaml.c
+    CCopt: $cflags
+    CompiledObject: best
