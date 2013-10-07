@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: cfde431fca6de6f5e8f78a04de46bc4a)
+# DO NOT EDIT (digest: c99164e3ecb35c2534917563af143c74)
 version = "3.3"
 description = "LLVM OCaml bindings"
 archive(byte) = "llvm.cma"
@@ -10,6 +10,7 @@ exists_if = "llvm.cma"
 package "target" (
  version = "3.3"
  description = "LLVM OCaml bindings"
+ requires = "llvm"
  archive(byte) = "target.cma"
  archive(byte, plugin) = "target.cma"
  archive(native) = "target.cmxa"
@@ -20,6 +21,7 @@ package "target" (
 package "scalar_opts" (
  version = "3.3"
  description = "LLVM OCaml bindings"
+ requires = "llvm"
  archive(byte) = "scalar_opts.cma"
  archive(byte, plugin) = "scalar_opts.cma"
  archive(native) = "scalar_opts.cmxa"
@@ -30,6 +32,7 @@ package "scalar_opts" (
 package "ipo" (
  version = "3.3"
  description = "LLVM OCaml bindings"
+ requires = "llvm"
  archive(byte) = "ipo.cma"
  archive(byte, plugin) = "ipo.cma"
  archive(native) = "ipo.cmxa"
@@ -40,6 +43,7 @@ package "ipo" (
 package "executionengine" (
  version = "3.3"
  description = "LLVM OCaml bindings"
+ requires = "llvm llvm.target"
  archive(byte) = "executionengine.cma"
  archive(byte, plugin) = "executionengine.cma"
  archive(native) = "executionengine.cmxa"
@@ -50,6 +54,7 @@ package "executionengine" (
 package "bitwriter" (
  version = "3.3"
  description = "LLVM OCaml bindings"
+ requires = "llvm"
  archive(byte) = "bitwriter.cma"
  archive(byte, plugin) = "bitwriter.cma"
  archive(native) = "bitwriter.cmxa"
@@ -60,6 +65,7 @@ package "bitwriter" (
 package "bitreader" (
  version = "3.3"
  description = "LLVM OCaml bindings"
+ requires = "llvm"
  archive(byte) = "bitreader.cma"
  archive(byte, plugin) = "bitreader.cma"
  archive(native) = "bitreader.cmxa"
@@ -70,6 +76,7 @@ package "bitreader" (
 package "analysis" (
  version = "3.3"
  description = "LLVM OCaml bindings"
+ requires = "llvm"
  archive(byte) = "analysis.cma"
  archive(byte, plugin) = "analysis.cma"
  archive(native) = "analysis.cmxa"

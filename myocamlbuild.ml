@@ -1,5 +1,5 @@
 (* OASIS_START *)
-(* DO NOT EDIT (digest: 3d3a01c6390df5934e99193347f4bdfe) *)
+(* DO NOT EDIT (digest: 8019566e7bf90379b79d69ea57f0030a) *)
 module OASISGettext = struct
 (* # 21 "src/oasis/OASISGettext.ml" *)
 
@@ -483,8 +483,8 @@ let package_default =
           ("analysis", ["analysis"]);
           ("bitreader", ["bitreader"]);
           ("bitwriter", ["bitwriter"]);
-          ("executionengine", ["executionengine"]);
           ("target", ["target"]);
+          ("executionengine", ["executionengine"]);
           ("ipo", ["transforms/ipo"]);
           ("scalar_opts", ["transforms/scalar"])
        ];
@@ -494,36 +494,108 @@ let package_default =
           ("analysis", "analysis", []);
           ("bitreader", "bitreader", []);
           ("bitwriter", "bitwriter", []);
-          ("executionengine", "executionengine", []);
           ("target", "target", []);
+          ("executionengine", "executionengine", []);
           ("ipo", "transforms/ipo", []);
           ("scalar_opts", "transforms/scalar", [])
        ];
      flags =
        [
           (["oasis_library_llvm_ccopt"; "compile"],
-            [(OASISExpr.EBool true, S [A "-ccopt"; A "${cflags}"])]);
+            [(OASISExpr.EBool true, S [A "-ccopt"; A "${llvm_cflags}"])]);
+          (["oasis_library_llvm_cclib"; "link"],
+            [(OASISExpr.EBool true, S [A "-cclib"; A "${llvm_ldflags}"])]);
+          (["oasis_library_llvm_cclib"; "ocamlmklib"; "c"],
+            [(OASISExpr.EBool true, S [A "${llvm_ldflags}"])]);
           (["oasis_library_analysis_ccopt"; "compile"],
-            [(OASISExpr.EBool true, S [A "-ccopt"; A "${cflags}"])]);
+            [(OASISExpr.EBool true, S [A "-ccopt"; A "${llvm_cflags}"])]);
+          (["oasis_library_analysis_cclib"; "link"],
+            [(OASISExpr.EBool true, S [A "-cclib"; A "${llvm_ldflags}"])]);
+          (["oasis_library_analysis_cclib"; "ocamlmklib"; "c"],
+            [(OASISExpr.EBool true, S [A "${llvm_ldflags}"])]);
           (["oasis_library_bitreader_ccopt"; "compile"],
-            [(OASISExpr.EBool true, S [A "-ccopt"; A "${cflags}"])]);
+            [(OASISExpr.EBool true, S [A "-ccopt"; A "${llvm_cflags}"])]);
+          (["oasis_library_bitreader_cclib"; "link"],
+            [(OASISExpr.EBool true, S [A "-cclib"; A "${llvm_ldflags}"])]);
+          (["oasis_library_bitreader_cclib"; "ocamlmklib"; "c"],
+            [(OASISExpr.EBool true, S [A "${llvm_ldflags}"])]);
           (["oasis_library_bitwriter_ccopt"; "compile"],
-            [(OASISExpr.EBool true, S [A "-ccopt"; A "${cflags}"])]);
-          (["oasis_library_executionengine_ccopt"; "compile"],
-            [(OASISExpr.EBool true, S [A "-ccopt"; A "${cflags}"])]);
+            [(OASISExpr.EBool true, S [A "-ccopt"; A "${llvm_cflags}"])]);
+          (["oasis_library_bitwriter_cclib"; "link"],
+            [(OASISExpr.EBool true, S [A "-cclib"; A "${llvm_ldflags}"])]);
+          (["oasis_library_bitwriter_cclib"; "ocamlmklib"; "c"],
+            [(OASISExpr.EBool true, S [A "${llvm_ldflags}"])]);
           (["oasis_library_target_ccopt"; "compile"],
-            [(OASISExpr.EBool true, S [A "-ccopt"; A "${cflags}"])]);
+            [(OASISExpr.EBool true, S [A "-ccopt"; A "${llvm_cflags}"])]);
+          (["oasis_library_target_cclib"; "link"],
+            [(OASISExpr.EBool true, S [A "-cclib"; A "${llvm_ldflags}"])]);
+          (["oasis_library_target_cclib"; "ocamlmklib"; "c"],
+            [(OASISExpr.EBool true, S [A "${llvm_ldflags}"])]);
+          (["oasis_library_executionengine_ccopt"; "compile"],
+            [(OASISExpr.EBool true, S [A "-ccopt"; A "${llvm_cflags}"])]);
+          (["oasis_library_executionengine_cclib"; "link"],
+            [(OASISExpr.EBool true, S [A "-cclib"; A "${llvm_ldflags}"])]);
+          (["oasis_library_executionengine_cclib"; "ocamlmklib"; "c"],
+            [(OASISExpr.EBool true, S [A "${llvm_ldflags}"])]);
           (["oasis_library_ipo_ccopt"; "compile"],
-            [(OASISExpr.EBool true, S [A "-ccopt"; A "${cflags}"])]);
+            [(OASISExpr.EBool true, S [A "-ccopt"; A "${llvm_cflags}"])]);
+          (["oasis_library_ipo_cclib"; "link"],
+            [(OASISExpr.EBool true, S [A "-cclib"; A "${llvm_ldflags}"])]);
+          (["oasis_library_ipo_cclib"; "ocamlmklib"; "c"],
+            [(OASISExpr.EBool true, S [A "${llvm_ldflags}"])]);
           (["oasis_library_scalar_opts_ccopt"; "compile"],
-            [(OASISExpr.EBool true, S [A "-ccopt"; A "${cflags}"])])
+            [(OASISExpr.EBool true, S [A "-ccopt"; A "${llvm_cflags}"])]);
+          (["oasis_library_scalar_opts_cclib"; "link"],
+            [(OASISExpr.EBool true, S [A "-cclib"; A "${llvm_ldflags}"])]);
+          (["oasis_library_scalar_opts_cclib"; "ocamlmklib"; "c"],
+            [(OASISExpr.EBool true, S [A "${llvm_ldflags}"])])
        ];
-     includes = [];
+     includes =
+       [
+          ("transforms/scalar", ["llvm"]);
+          ("transforms/ipo", ["llvm"]);
+          ("target", ["llvm"]);
+          ("executionengine", ["llvm"; "target"]);
+          ("bitwriter", ["llvm"]);
+          ("bitreader", ["llvm"]);
+          ("analysis", ["llvm"])
+       ];
      }
   ;;
 
 let dispatch_default = MyOCamlbuildBase.dispatch_default package_default;;
 
-# 528 "myocamlbuild.ml"
+# 569 "myocamlbuild.ml"
 (* OASIS_STOP *)
-Ocamlbuild_plugin.dispatch dispatch_default;;
+
+let subst_ccflags flags =
+  let env = BaseEnvLight.load ~filename:MyOCamlbuildBase.env_filename ~allow_empty:true () in
+  let buf = Buffer.create 10 in
+  let get_var var =
+    Buffer.add_substitute buf (fun nm -> nm) var;
+    let nm = Buffer.contents buf in
+    let result = BaseEnvLight.var_get nm env in
+    Buffer.clear buf;
+    result
+  in
+
+  let subst arg = match arg with
+  | A arg when arg.[0] = '$' -> A (get_var arg)
+  | _ -> arg
+  in
+
+  List.map (fun (flag, cond_specs) ->
+    let cond_specs = List.map (fun (cond, spec) ->
+      let spec = match spec with
+      | S args -> S (List.map subst args)
+      | _ -> spec
+      in (cond, spec)
+    ) cond_specs in
+    (flag, cond_specs)
+  ) flags
+
+let () =
+  let flags = subst_ccflags package_default.MyOCamlbuildBase.flags in
+  let package_default = {package_default with MyOCamlbuildBase.flags = flags} in
+  let dispatch_default = MyOCamlbuildBase.dispatch_default package_default in
+  Ocamlbuild_plugin.dispatch dispatch_default

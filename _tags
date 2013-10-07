@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: 6ce4056eae1ca029362628eed50d5c19)
+# DO NOT EDIT (digest: 3dbe6ef995ca81e6999b6ddd7a06c433)
 # Ignore VCS directories, you can use the same kind of rule outside 
 # OASIS_START/STOP if you want to exclude directories that contains 
 # useless stuff for the build process
@@ -17,40 +17,96 @@
 "llvm/llvm.cmxs": use_llvm
 <llvm/*.ml{,i}>: oasis_library_llvm_ccopt
 "llvm/llvm_ocaml.c": oasis_library_llvm_ccopt
+<llvm/llvm.{cma,cmxa}>: oasis_library_llvm_cclib
+"llvm/libllvm_stubs.lib": oasis_library_llvm_cclib
+"llvm/dllllvm_stubs.dll": oasis_library_llvm_cclib
+"llvm/libllvm_stubs.a": oasis_library_llvm_cclib
+"llvm/dllllvm_stubs.so": oasis_library_llvm_cclib
 <llvm/llvm.{cma,cmxa}>: use_libllvm_stubs
 # Library analysis
 "analysis/analysis.cmxs": use_analysis
 <analysis/*.ml{,i}>: oasis_library_analysis_ccopt
 "analysis/llvm_ocaml.c": oasis_library_analysis_ccopt
+<analysis/analysis.{cma,cmxa}>: oasis_library_analysis_cclib
+"analysis/libanalysis_stubs.lib": oasis_library_analysis_cclib
+"analysis/dllanalysis_stubs.dll": oasis_library_analysis_cclib
+"analysis/libanalysis_stubs.a": oasis_library_analysis_cclib
+"analysis/dllanalysis_stubs.so": oasis_library_analysis_cclib
 <analysis/analysis.{cma,cmxa}>: use_libanalysis_stubs
+<analysis/*.ml{,i}>: use_llvm
+"analysis/llvm_ocaml.c": use_llvm
 # Library bitreader
 "bitreader/bitreader.cmxs": use_bitreader
 <bitreader/*.ml{,i}>: oasis_library_bitreader_ccopt
 "bitreader/bitreader_ocaml.c": oasis_library_bitreader_ccopt
+<bitreader/bitreader.{cma,cmxa}>: oasis_library_bitreader_cclib
+"bitreader/libbitreader_stubs.lib": oasis_library_bitreader_cclib
+"bitreader/dllbitreader_stubs.dll": oasis_library_bitreader_cclib
+"bitreader/libbitreader_stubs.a": oasis_library_bitreader_cclib
+"bitreader/dllbitreader_stubs.so": oasis_library_bitreader_cclib
 <bitreader/bitreader.{cma,cmxa}>: use_libbitreader_stubs
+<bitreader/*.ml{,i}>: use_llvm
+"bitreader/bitreader_ocaml.c": use_llvm
 # Library bitwriter
 "bitwriter/bitwriter.cmxs": use_bitwriter
 <bitwriter/*.ml{,i}>: oasis_library_bitwriter_ccopt
 "bitwriter/bitwriter_ocaml.c": oasis_library_bitwriter_ccopt
+<bitwriter/bitwriter.{cma,cmxa}>: oasis_library_bitwriter_cclib
+"bitwriter/libbitwriter_stubs.lib": oasis_library_bitwriter_cclib
+"bitwriter/dllbitwriter_stubs.dll": oasis_library_bitwriter_cclib
+"bitwriter/libbitwriter_stubs.a": oasis_library_bitwriter_cclib
+"bitwriter/dllbitwriter_stubs.so": oasis_library_bitwriter_cclib
 <bitwriter/bitwriter.{cma,cmxa}>: use_libbitwriter_stubs
-# Library executionengine
-"executionengine/executionengine.cmxs": use_executionengine
-<executionengine/*.ml{,i}>: oasis_library_executionengine_ccopt
-"executionengine/executionengine_ocaml.c": oasis_library_executionengine_ccopt
-<executionengine/executionengine.{cma,cmxa}>: use_libexecutionengine_stubs
+<bitwriter/*.ml{,i}>: use_llvm
+"bitwriter/bitwriter_ocaml.c": use_llvm
 # Library target
 "target/target.cmxs": use_target
 <target/*.ml{,i}>: oasis_library_target_ccopt
 "target/target_ocaml.c": oasis_library_target_ccopt
+<target/target.{cma,cmxa}>: oasis_library_target_cclib
+"target/libtarget_stubs.lib": oasis_library_target_cclib
+"target/dlltarget_stubs.dll": oasis_library_target_cclib
+"target/libtarget_stubs.a": oasis_library_target_cclib
+"target/dlltarget_stubs.so": oasis_library_target_cclib
 <target/target.{cma,cmxa}>: use_libtarget_stubs
+<target/*.ml{,i}>: use_llvm
+"target/target_ocaml.c": use_llvm
+# Library executionengine
+"executionengine/executionengine.cmxs": use_executionengine
+<executionengine/*.ml{,i}>: oasis_library_executionengine_ccopt
+"executionengine/executionengine_ocaml.c": oasis_library_executionengine_ccopt
+<executionengine/executionengine.{cma,cmxa}>: oasis_library_executionengine_cclib
+"executionengine/libexecutionengine_stubs.lib": oasis_library_executionengine_cclib
+"executionengine/dllexecutionengine_stubs.dll": oasis_library_executionengine_cclib
+"executionengine/libexecutionengine_stubs.a": oasis_library_executionengine_cclib
+"executionengine/dllexecutionengine_stubs.so": oasis_library_executionengine_cclib
+<executionengine/executionengine.{cma,cmxa}>: use_libexecutionengine_stubs
+<executionengine/*.ml{,i}>: use_target
+<executionengine/*.ml{,i}>: use_llvm
+"executionengine/executionengine_ocaml.c": use_target
+"executionengine/executionengine_ocaml.c": use_llvm
 # Library ipo
 "transforms/ipo/ipo.cmxs": use_ipo
 <transforms/ipo/*.ml{,i}>: oasis_library_ipo_ccopt
 "transforms/ipo/ipo_ocaml.c": oasis_library_ipo_ccopt
+<transforms/ipo/ipo.{cma,cmxa}>: oasis_library_ipo_cclib
+"transforms/ipo/libipo_stubs.lib": oasis_library_ipo_cclib
+"transforms/ipo/dllipo_stubs.dll": oasis_library_ipo_cclib
+"transforms/ipo/libipo_stubs.a": oasis_library_ipo_cclib
+"transforms/ipo/dllipo_stubs.so": oasis_library_ipo_cclib
 <transforms/ipo/ipo.{cma,cmxa}>: use_libipo_stubs
+<transforms/ipo/*.ml{,i}>: use_llvm
+"transforms/ipo/ipo_ocaml.c": use_llvm
 # Library scalar_opts
 "transforms/scalar/scalar_opts.cmxs": use_scalar_opts
 <transforms/scalar/*.ml{,i}>: oasis_library_scalar_opts_ccopt
 "transforms/scalar/scalar_opts_ocaml.c": oasis_library_scalar_opts_ccopt
+<transforms/scalar/scalar_opts.{cma,cmxa}>: oasis_library_scalar_opts_cclib
+"transforms/scalar/libscalar_opts_stubs.lib": oasis_library_scalar_opts_cclib
+"transforms/scalar/dllscalar_opts_stubs.dll": oasis_library_scalar_opts_cclib
+"transforms/scalar/libscalar_opts_stubs.a": oasis_library_scalar_opts_cclib
+"transforms/scalar/dllscalar_opts_stubs.so": oasis_library_scalar_opts_cclib
 <transforms/scalar/scalar_opts.{cma,cmxa}>: use_libscalar_opts_stubs
+<transforms/scalar/*.ml{,i}>: use_llvm
+"transforms/scalar/scalar_opts_ocaml.c": use_llvm
 # OASIS_STOP

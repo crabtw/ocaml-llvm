@@ -11,61 +11,76 @@ Library llvm
     Path: llvm
     Modules: Llvm
     CSources: llvm_ocaml.c
-    CCopt: $cflags
+    CCopt: $llvm_cflags
+    CClib: $llvm_ldflags
     CompiledObject: best
 
 Library analysis
     FindlibParent: llvm
+    BuildDepends: llvm
     Path: analysis
     Modules: Llvm_analysis
     CSources: llvm_ocaml.c
-    CCopt: $cflags
+    CCopt: $llvm_cflags
+    CClib: $llvm_ldflags
     CompiledObject: best
 
 Library bitreader
     FindlibParent: llvm
+    BuildDepends: llvm
     Path: bitreader
     Modules: Llvm_bitreader
     CSources: bitreader_ocaml.c
-    CCopt: $cflags
+    CCopt: $llvm_cflags
+    CClib: $llvm_ldflags
     CompiledObject: best
 
 Library bitwriter
     FindlibParent: llvm
+    BuildDepends: llvm
     Path: bitwriter
     Modules: Llvm_bitwriter
     CSources: bitwriter_ocaml.c
-    CCopt: $cflags
+    CCopt: $llvm_cflags
+    CClib: $llvm_ldflags
     CompiledObject: best
 
 Library executionengine
     FindlibParent: llvm
+    BuildDepends: llvm, llvm.target
     Path: executionengine
     Modules: Llvm_executionengine
     CSources: executionengine_ocaml.c
-    CCopt: $cflags
+    CCopt: $llvm_cflags
+    CClib: $llvm_ldflags
     CompiledObject: best
 
 Library target
     FindlibParent: llvm
+    BuildDepends: llvm
     Path: target
     Modules: Llvm_target
     CSources: target_ocaml.c
-    CCopt: $cflags
+    CCopt: $llvm_cflags
+    CClib: $llvm_ldflags
     CompiledObject: best
 
 Library ipo
     FindlibParent: llvm
+    BuildDepends: llvm
     Path: transforms/ipo
     Modules: Llvm_ipo
     CSources: ipo_ocaml.c
-    CCopt: $cflags
+    CCopt: $llvm_cflags
+    CClib: $llvm_ldflags
     CompiledObject: best
 
 Library scalar_opts
     FindlibParent: llvm
+    BuildDepends: llvm
     Path: transforms/scalar
     Modules: Llvm_scalar_opts
     CSources: scalar_opts_ocaml.c
-    CCopt: $cflags
+    CCopt: $llvm_cflags
+    CClib: $llvm_ldflags
     CompiledObject: best
